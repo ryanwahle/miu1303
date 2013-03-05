@@ -1,0 +1,158 @@
+/* Ryan Wahle */
+/* MIU 1303   */
+/* Project 1  */
+
+body {
+	font-family: 'Vollkorn', serif;
+}
+
+h1 {
+	background-color: #4A7B6F;
+	text-align: center;
+	font-size: 22pt;
+	color: #242E35;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	
+	border-top-left-radius: 25px;
+	border-top-right-radius: 25px;
+
+	padding: 25px;
+	
+	font-family: "Ubuntu", serif;
+
+}
+
+h2 {
+	background-color: #4A7B6F;
+	color: #9EAEB3;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	
+	padding: 15px;
+	padding-top: 0px;
+	
+	text-align: center;
+}
+
+footer {
+	background-color: #4A7B6F;
+
+	border-bottom-left-radius: 25px;
+	border-bottom-right-radius: 25px;
+	
+	text-align: center;
+	padding: 25px
+}
+
+footer p {
+	display: inline;
+	margin: 5px;
+}
+
+fieldset {
+	background-color: #CCDDDD;
+	border-radius: 10px;
+	border: 1px solid black;
+}
+
+label {
+	display: block;
+}
+
+input {
+	padding: 5px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+input[type=button] {
+	width: 50%;
+	font-size: 12pt;
+	background-color: #EEEEE7;
+	border-radius: 25px;
+	padding: 10px;
+	color: #4A7B6F;
+	font-family: "Ubuntu", serif;
+}
+
+input[type=checkbox] {
+	width: 15%;
+}
+
+#submitButtonContainer {
+	text-align: center;
+}
+
+
+#formErrors {
+	color: red;
+}
+
+textarea {
+	width: 100%;
+	padding: 5px;
+	box-sizing: border-box;
+}
+
+legend {
+	background-color: #CCDDDD;
+	border-top-left-radius: 7px;
+	border-top-right-radius: 7px;
+	border-radius: 7px;
+	
+	border: 1px solid black;
+	
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	
+	font-size: 14pt;
+	font-weight: bold;
+	
+	font-family: "Ubuntu", serif; 
+}
+
+section {
+	background-color: #4A7B6F;
+	padding: 5px;
+}
+
+a {
+	background-color: #EEEEE7;
+	border-radius: 25px;
+	padding: 10px;
+	text-decoration: none;
+	font-weight: bold;
+	color: #4A7B6F;
+	font-size: 9pt;
+}
+
+#addTVShowLink {
+	display: none;
+}
+
+#showLink {
+	background-color: #242E35;
+	color: #EEEEE7;
+	margin-right: 10px;
+	font-size: 8pt;
+}
+
+#itemTVShow > li {
+	padding: 10px;
+	list-style-type: none;
+	width: 85%;
+}
+
+#itemTVShowHeader {
+	background-color: #242E35;
+	color: #EEEEE7;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+#itemTVShowDetail {
+	background-color: #CCDDDD;
+}
