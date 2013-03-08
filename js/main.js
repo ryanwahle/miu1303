@@ -2,7 +2,7 @@
 /* MIU 1303   */
 /* Project 1  */
 
-function $ (element)
+function html (element)
 {
 	return document.getElementById(element);
 }
@@ -16,29 +16,29 @@ function validateTVShowFormFields ()
 	
 	// Validate the individual form fields that require validation
 	var regEx = /\S/;
-	if (!regEx.exec($("showName").value)) {
+	if (!regEx.exec(html("showName").value)) {
 		errorMessagesArray.push("Please enter the Show Name");
-		$("showName").style.border = "1px solid red";
-		$("showName").value = "";
+		html("showName").style.border = "1px solid red";
+		html("showName").value = "";
 	} 
 
 	var regEx = /^\d{1,2}:\d{2}$/;
-	if (!regEx.exec($("time").value)) {
+	if (!regEx.exec(html("time").value)) {
 		errorMessagesArray.push("Please select a Time or enter in 24HR format: HH:MM");
-		$("time").style.border = "1px solid red";
+		html("time").style.border = "1px solid red";
 	} 
 
 	var regEx = /^\d{4}-\d{1,2}-\d{1,2}$/;
-	if (!regEx.exec($("startingDate").value)) {
+	if (!regEx.exec(html("startingDate").value)) {
 		errorMessagesArray.push("Please select a Starting Date or enter in format: YYYY-MM-DD");
-		$("startingDate").style.border = "1px solid red";
+		html("startingDate").style.border = "1px solid red";
 	} 
 
 	var regEx = /\S/;
-	if (!regEx.exec($("description").value)) {
+	if (!regEx.exec(html("description").value)) {
 		errorMessagesArray.push("Please enter the Description");
-		$("description").style.border = "1px solid red";
-		$("description").value = "";
+		html("description").style.border = "1px solid red";
+		html("description").value = "";
 	} 
 
 	// Check if any errors
@@ -47,7 +47,7 @@ function validateTVShowFormFields ()
 		for (var i = 0; i < errorMessagesArray.length; i++) {
 			var errorTagLI = document.createElement("li");
 			errorTagLI.innerHTML = errorMessagesArray[i];
-			$("formErrors").appendChild(errorTagLI);
+			html("formErrors").appendChild(errorTagLI);
 		}
 	} else {
 		// No Errors. Save the TV Show
@@ -66,23 +66,23 @@ function validateTVShowFormFields ()
 //		I am also putting it in the edit function.
 function resetFormErrors ()
 {
-	$("formErrors").innerHTML = "";
-	$("showName").style.border = "1px solid black";
-	$("time").style.border = "1px solid black";
-	$("startingDate").style.border = "1px solid black";
-	$("description").style.border = "1px solid black";
+	html("formErrors").innerHTML = "";
+	html("showName").style.border = "1px solid black";
+	html("time").style.border = "1px solid black";
+	html("startingDate").style.border = "1px solid black";
+	html("description").style.border = "1px solid black";
 }
 
 function saveTVShow (localStorageKey)
 {
 	var myTVShow = {
-			showName: $("showName").value,
-			dayOfWeek: $("dayOfWeek").value,
-			time: $("time").value,
-			favorite: $("favorite").checked,
-			rating: $("rating").value,
-			startingDate: $("startingDate").value,
-			description: $("description").value
+			showName: html("showName").value,
+			dayOfWeek: html("dayOfWeek").value,
+			time: html("time").value,
+			favorite: html("favorite").checked,
+			rating: html("rating").value,
+			startingDate: html("startingDate").value,
+			description: html("description").value
 	};
 	
 	// If no key, then we are adding a new TV Show.
@@ -122,9 +122,9 @@ function displayData ()
 	
 	if (localStorageLength > 0) {
 		// Hide the form, hide the display data link, and show the add tv show button
-		$("addTVShowForm").style.display = "none";
-		$("displayDataLink").style.display = "none";
-		$("addTVShowLink").style.display = "inline";
+		html("addTVShowForm").style.display = "none";
+		html("displayDataLink").style.display = "none";
+		html("addTVShowLink").style.display = "inline";
 		
 		var sectionListTVShows = document.createElement("section");
 		sectionListTVShows.setAttribute("id", "sectionListTVShows");
@@ -156,7 +156,7 @@ function displayData ()
 			// Put it all the added HTML to the page!
 			sectionListTVShows.appendChild(tagTVShowList);
 			
-			$("mainSection").appendChild(sectionListTVShows);
+			html("mainSection").appendChild(sectionListTVShows);
 		}
 	} else {
 		var addJSONDataConfirmation = confirm("There are currently no TV Shows to display. Would you like to load some pre-defined data?");
@@ -205,26 +205,26 @@ function editTVShow ()
 	// The rest of the function
 	var myTVShow = JSON.parse(localStorage.getItem(this.key));
 	
-	$("showName").value = myTVShow.showName;
-	$("dayOfWeek").value = myTVShow.dayOfWeek;
-	$("time").value = myTVShow.time;
-	$("rating").value = myTVShow.rating;
-	$("startingDate").value = myTVShow.startingDate;
-	$("description").value = myTVShow.description;
+	html("showName").value = myTVShow.showName;
+	html("dayOfWeek").value = myTVShow.dayOfWeek;
+	html("time").value = myTVShow.time;
+	html("rating").value = myTVShow.rating;
+	html("startingDate").value = myTVShow.startingDate;
+	html("description").value = myTVShow.description;
 	
 	if (myTVShow.favorite) {
-		$("favorite").setAttribute("checked", "checked");
+		html("favorite").setAttribute("checked", "checked");
 	}
 	
 	// Setup the save button for editing the tv show
-	$("addTVShowButton").value = "Save";
-	$("addTVShowButton").key = this.key;
+	html("addTVShowButton").value = "Save";
+	html("addTVShowButton").key = this.key;
 	
 	// Hide the listing and show the form with updated legend
-	$("actionDescription").innerHTML = "Editing . . .";
-	$("actionDescription").style.backgroundColor = "yellow";
-	$("sectionListTVShows").style.display = "none";
-	$("addTVShowForm").style.display = "";
+	html("actionDescription").innerHTML = "Editing . . .";
+	html("actionDescription").style.backgroundColor = "yellow";
+	html("sectionListTVShows").style.display = "none";
+	html("addTVShowForm").style.display = "";
 	
 }
 
@@ -263,7 +263,7 @@ function addDaysOfWeekSelectTag ()
 {
 	var daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	
-	var selectionLabel = $("dayOfWeekSelection");
+	var selectionLabel = html("dayOfWeekSelection");
 	var selectTag = document.createElement("select");
 	selectTag.setAttribute("id", "dayOfWeek");
 	
@@ -286,9 +286,9 @@ function DOMLoaded ()
 	addDaysOfWeekSelectTag();
 
 	// Add some event listeners
-	var addTVShowButton = $("addTVShowButton");
-	var clearStoredDataLink = $("clearStoredDataLink");
-	var displayDataLink = $("displayDataLink");
+	var addTVShowButton = html("addTVShowButton");
+	var clearStoredDataLink = html("clearStoredDataLink");
+	var displayDataLink = html("displayDataLink");
 
 	addTVShowButton.addEventListener("click", validateTVShowFormFields);
 	clearStoredDataLink.addEventListener("click", clearStoredData);

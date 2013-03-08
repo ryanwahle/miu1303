@@ -4,6 +4,7 @@
 
 body {
 	font-family: 'Vollkorn', serif;
+	margin: 0px;
 }
 
 h1 {
@@ -14,9 +15,6 @@ h1 {
 	margin-top: 0px;
 	margin-bottom: 0px;
 	
-	border-top-left-radius: 25px;
-	border-top-right-radius: 25px;
-
 	padding: 25px;
 	
 	font-family: "Ubuntu", serif;
@@ -24,23 +22,23 @@ h1 {
 }
 
 h2 {
-	background-color: #4A7B6F;
+	background-color: #242E35;
 	color: #9EAEB3;
 	margin-top: 0px;
 	margin-bottom: 0px;
+
 	
-	padding: 15px;
-	padding-top: 0px;
+	padding: 10px;
 	
 	text-align: center;
+	font-size: 10pt;
+	
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
 }
 
 footer {
 	background-color: #4A7B6F;
-
-	border-bottom-left-radius: 25px;
-	border-bottom-right-radius: 25px;
-	
 	text-align: center;
 	padding: 25px
 }
@@ -52,8 +50,11 @@ footer p {
 
 fieldset {
 	background-color: #CCDDDD;
-	border-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
 	border: 1px solid black;
+	margin: 0px;
+	
 }
 
 label {
@@ -93,25 +94,6 @@ textarea {
 	width: 100%;
 	padding: 5px;
 	box-sizing: border-box;
-}
-
-legend {
-	background-color: #CCDDDD;
-	border-top-left-radius: 7px;
-	border-top-right-radius: 7px;
-	border-radius: 7px;
-	
-	border: 1px solid black;
-	
-	padding-right: 10px;
-	padding-left: 10px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	
-	font-size: 14pt;
-	font-weight: bold;
-	
-	font-family: "Ubuntu", serif; 
 }
 
 section {
@@ -155,4 +137,59 @@ a {
 
 #itemTVShowDetail {
 	background-color: #CCDDDD;
+}
+
+#dayOfWeekCategories > ul {
+	background-color: #CCDDDD;
+	margin-top: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	list-style-type: none;
+	border: 1px solid #9EAEB3;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	text-align: center;
+}
+
+#searchTVShows > ul {
+	background-color: #CCDDDD;
+	margin-top: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	list-style-type: none;
+	border: 1px solid #9EAEB3;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	text-align: center;
+}
+
+#listDayOfWeek {
+	margin: 0px;
+}
+
+#listDayOfWeek > a {
+	font-size: 10px;
+	font-family: "Ubuntu", serif;
+}
+
+#vfwLink > ul {
+	background-color: #CCDDDD;
+	margin-top: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	list-style-type: none;
+	border: 1px solid #9EAEB3;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	text-align: center;
+}
+
+#vfwLink > ul > li {
+	padding: 20px;
+}
+
+#centerStage {
+	background-color: #4A7B6F;
+	padding: 0px;
+	margin: 0px;
 }

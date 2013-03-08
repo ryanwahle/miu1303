@@ -3,7 +3,7 @@
 <!-- 
 Ryan Wahle
 MIU 1303
-Project 1 
+Project 1
 --> 
 
 
@@ -14,20 +14,115 @@ Project 1
 		<meta name="keywords" content="TV, Tracker, Reminder" />
 		<meta name="description" content="Add TV Show Reminder" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-		<meta name="robots" content="index, nofollow" />
+		<meta name="robots" content="noindex, nofollow" />
 		<link href="http://fonts.googleapis.com/css?family=Ubuntu:bold" rel="stylesheet" type="text/css">
 		<link href="http://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="css/styles.css" />
 	</head>
 	<body>
 		<header>
-			<h1>TV Show Reminder</h1>
-			<h2>Reminding you about TV Shows, without the DVR.</h2>
+			<h1>
+				<a href="#mainSection" id="centerStage">
+					<img src="img/centerstage.png" />
+				</a>
+			</h1>
 		</header>
+		
+		<section id="searchTVShows">
+				<h2>Search</h2>
+				<ul>
+					<li>
+						<form action="#" method="post" id="searchAnything">
+							<input type="search" id="search" placeholder="Search for anything here . . ." />
+						</form>
+					</li>
+				</ul>
+		</section>
+		
+		<section id="dayOfWeekCategories">
+			<h2>Browse TV Shows by Day</h2>
+			<ul>
+				<p>
+				<li id="listDayOfWeek">
+				<a href="#" id="browseMonday">Monday</a>
+				<a href="#" id="browseTuesday">Tuesday</a>
+				<a href="#" id="browseWednesday">Wednesday</a>
+				</li>
+				</p>
+				<p>
+				<li id="listDayOfWeek">
+				<a href="#" id="browseThursday">Thursday</a>
+				<a href="#" id="browseFriday">Friday</a>
+				<a href="#" id="browseSaturday">Saturday</a>
+				<a href="#" id="browseSunday">Sunday</a>
+				</li>
+				</p>
+			</ul>
+		</section>
+		
+		<section id="mainSection">
+			<form action="#" method="post" id="addTVShowForm">
+				<h2>Add TV Show</h2>
+				<fieldset>
+					<input type="hidden" id="action" value="addTVShow" />
+					<ul id="formErrors">
+					</ul>
+					<p>
+						<label for="showName">Show Name: </label>
+						<input type="text" id="showName" placeholder="Name of the TV Show" required />
+					</p>
+					<p id="dayOfWeekSelection">
+						<label for="dayOfWeek">Day of Week: </label>
+					</p>
+					<p>
+						<label for="time">Time: </label>
+						<input type="time" id="time" required />				
+					</p>
+					<p>
+						<label for="favorite">
+							Favorite? <input type="checkbox" id="favorite" />
+						</label>
+					</p>
+					<p>
+						<label for="rating">Rating: </label>
+						<input type="range" id="rating" min="1" max="5" />
+					</p>
+					<p>
+						<label for="startingDate">Starting Date: </label>
+						<input type="date" id="startingDate" required />
+					</p>
+					<p>
+						<label for="description">Description: </label>
+						<textarea id="description" rows="5" placeholder="Enter a description of the show" required></textarea>
+					</p>
+					<p id="submitButtonContainer">
+						<input type="button" id="addTVShowButton" value="Add" />
+					</p>
+				</fieldset>
+			</form>
+		</section>
+		<section id="vfwLink">
+			<h2>Visual Frameworks 1302</h2>
+			<ul>
+				<li>
+				<a href="http://b67416.github.com/vfw1302">Launch App!</a>
+				</li>
+			</ul>
+		</section>
 		<footer>
-			<nav>
-				<a href="additem.html">Add a TV Show</a>
-			</nav>
+			<p>
+				<a href="#" id="clearStoredDataLink">Clear Stored Data</a>
+			</p>
+			<p>
+				<a href="#" id="displayDataLink">Display Data</a>
+			</p>
+			<p>
+				<a href="additem.html" id="addTVShowLink">Go Back</a>
+			</p>
 		</footer>
+		
+		<script type="text/javascript" src="js/json.js"></script>		
+		<script type="text/javascript" src="js/main.js"></script>
 	</body>
 </html>
+
