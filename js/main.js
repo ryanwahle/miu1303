@@ -278,6 +278,10 @@ function addDaysOfWeekSelectTag ()
 	
 }
 
+function cancelAddTVShow ()
+{
+	location.href = "index.html";
+}
 
 // This is our starting point (after the DOM loads)
 function DOMLoaded ()
@@ -287,10 +291,14 @@ function DOMLoaded ()
 
 	// Add some event listeners
 	var addTVShowButton = html("addTVShowButton");
+	var cancelAddTVShowButton = html("cancelAddTVShowButton");
+	
 	var clearStoredDataLink = html("clearStoredDataLink");
 	var displayDataLink = html("displayDataLink");
 
 	addTVShowButton.addEventListener("click", validateTVShowFormFields);
+	cancelAddTVShowButton.addEventListener("click", cancelAddTVShow);
+	
 	clearStoredDataLink.addEventListener("click", clearStoredData);
 	displayDataLink.addEventListener("click", displayData);
 }
