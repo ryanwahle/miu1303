@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<!-- 
+Ryan Wahle
+MIU 1303
+Project 2
+--> 
+
+
+<html>
+	<head>
+		<title>TV Show Reminder</title>
+		<meta charset="UTF-8" />
+		<meta name="keywords" content="TV, Tracker, Reminder" />
+		<meta name="description" content="Add TV Show Reminder" />
+		<meta name="HandheldFriendly" content="True" />
+		<meta name="MobileOptimized" content="320" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="robots" content="noindex, nofollow" />
+		<meta http-equiv="cleartype" content="on">
+		
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+		<script src="js/libs/modernizr.custom.min.js"></script>
+	</head>
+	<body>
+		<div data-role="page" id="pageHome">
+			<div data-role="header" data-position="fixed">
+				<h1>TV Reminder</h1>
+			</div>
+			
+			<div data-role="content">
+				<div class="ui-bar-b">
+    				<h1>Centerpiece goes here</h1>
+				</div>
+				
+				<form action="#" method="post" id="searchTVShowsForm">
+					<input type="search" id="searchTVShows" placeholder="Search your TV Shows . . ." />
+				</form>
+				
+				<div data-role="collapsible">
+					<h4>Browse Shows by Day</h4>
+				<ul data-role="listview">
+					<li><img src="img/Monday.png" /></li>
+					<li><img src="img/Tuesday.png" /></li>
+					<li><img src="img/Wednesday.png" /></li>
+					<li><img src="img/Thursday.png" /></li>
+					<li><img src="img/Friday.png" /></li>
+					<li><img src="img/Saturday.png" /></li>
+					<li><img src="img/Sunday.png" /></li>
+				</ul>
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-id="globalNavBar">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="indexJQMobile.html" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
+						<li><a href="info.html" data-icon="info">Info</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+		<script type="text/javascript" src="js/json.js"></script>		
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>
+
