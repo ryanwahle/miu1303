@@ -1,0 +1,195 @@
+/* Ryan Wahle */
+/* MIU 1303   */
+/* Project 1  */
+
+body {
+	font-family: 'Vollkorn', serif;
+	margin: 0px;
+}
+
+h1 {
+	background-color: #4A7B6F;
+	text-align: center;
+	font-size: 22pt;
+	color: #242E35;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	
+	padding: 25px;
+	
+	font-family: "Ubuntu", serif;
+
+}
+
+h2 {
+	background-color: #242E35;
+	color: #9EAEB3;
+	margin-top: 0px;
+	margin-bottom: 0px;
+
+	
+	padding: 10px;
+	
+	text-align: center;
+	font-size: 10pt;
+	
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+footer {
+	background-color: #4A7B6F;
+	text-align: center;
+	padding: 25px
+}
+
+footer p {
+	display: inline;
+	margin: 5px;
+}
+
+fieldset {
+	background-color: #CCDDDD;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border: 1px solid black;
+	margin: 0px;
+	
+}
+
+label {
+	display: block;
+}
+
+input {
+	padding: 5px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+input[type=button] {
+	width: 50%;
+	font-size: 12pt;
+	background-color: #EEEEE7;
+	border-radius: 25px;
+	padding: 10px;
+	color: #4A7B6F;
+	font-family: "Ubuntu", serif;
+}
+
+input[type=checkbox] {
+	width: 15%;
+}
+
+#submitButtonContainer {
+	text-align: center;
+}
+
+
+#formErrors {
+	color: red;
+}
+
+textarea {
+	width: 100%;
+	padding: 5px;
+	box-sizing: border-box;
+}
+
+section {
+	background-color: #4A7B6F;
+	padding: 5px;
+}
+
+a {
+	background-color: #EEEEE7;
+	border-radius: 25px;
+	padding: 10px;
+	text-decoration: none;
+	font-weight: bold;
+	color: #4A7B6F;
+	font-size: 9pt;
+}
+
+#addTVShowLink {
+	display: none;
+}
+
+#showLink {
+	background-color: #242E35;
+	color: #EEEEE7;
+	margin-right: 10px;
+	font-size: 8pt;
+}
+
+#itemTVShow > li {
+	padding: 10px;
+	list-style-type: none;
+	width: 85%;
+}
+
+#itemTVShowHeader {
+	background-color: #242E35;
+	color: #EEEEE7;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+#itemTVShowDetail {
+	background-color: #CCDDDD;
+}
+
+#dayOfWeekCategories > ul {
+	background-color: #CCDDDD;
+	margin-top: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	list-style-type: none;
+	border: 1px solid #9EAEB3;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	text-align: center;
+}
+
+#searchTVShows > ul {
+	background-color: #CCDDDD;
+	margin-top: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	list-style-type: none;
+	border: 1px solid #9EAEB3;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	text-align: center;
+}
+
+#listDayOfWeek {
+	margin: 0px;
+}
+
+#listDayOfWeek > a {
+	font-size: 10px;
+	font-family: "Ubuntu", serif;
+}
+
+#vfwLink > ul {
+	background-color: #CCDDDD;
+	margin-top: 0px;
+	padding-left: 10px;
+	padding-right: 10px;
+	list-style-type: none;
+	border: 1px solid #9EAEB3;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	text-align: center;
+}
+
+#vfwLink > ul > li {
+	padding: 20px;
+}
+
+#centerStage {
+	background-color: #4A7B6F;
+	padding: 0px;
+	margin: 0px;
+}

@@ -24,7 +24,7 @@ Project 2
 	</head>
 	<body>
 <!-- pageHome -->
-		<div data-role="page" id="pageHome">
+		<div data-role="page" id="pageHome" data-theme="e">
 			<div data-role="header" data-position="fixed">
 				<h1>TV Reminder</h1>
 			</div>
@@ -44,21 +44,55 @@ Project 2
 					<ul data-role="listview">
 						<li>
 							<div class="ui-grid-c">
-								<div class="ui-block-a"><a href="#pageBrowseShowsByDay"><img id="browseMonday" src="img/Monday.png" /></a></div>
-								<div class="ui-block-b"><a href="#pageBrowseShowsByDay"><img id="browseTuesday" src="img/Tuesday.png" /></a></div>
-								<div class="ui-block-c"><a href="#pageBrowseShowsByDay"><img id="browseWednesday" src="img/Wednesday.png" /></a></div>
-								<div class="ui-block-d"><a href="#pageBrowseShowsByDay"><img id="browseThursday" src="img/Thursday.png" /></a></div>
+								<div class="ui-block-a"><a href="#pageBrowseShowsByDay"><img id="browseMonday" src="img/Monday.png" /><h1>Monday</h1></a></div>
+								<div class="ui-block-b"><a href="#pageBrowseShowsByDay"><img id="browseTuesday" src="img/Tuesday.png" /><h1>Tuesday</h1></a></div>
+								<div class="ui-block-c"><a href="#pageBrowseShowsByDay"><img id="browseWednesday" src="img/Wednesday.png" /><h1>Wednesday</h1></a></div>
+								<div class="ui-block-d"><a href="#pageBrowseShowsByDay"><img id="browseThursday" src="img/Thursday.png" /><h1>Thursday</h1></a></div>
 							</div>
 						</li>
 						<li>
 							<div class="ui-grid-b">
-								<div class="ui-block-a"><a href="#pageBrowseShowsByDay"><img id="browseFriday" src="img/Friday.png" /></a></div>
-								<div class="ui-block-b"><a href="#pageBrowseShowsByDay"><img id="browseSaturday" src="img/Saturday.png" /></a></div>
-								<div class="ui-block-c"><a href="#pageBrowseShowsByDay"><img id="browseSunday" src="img/Sunday.png" /></a></div>
+								<div class="ui-block-a"><a href="#pageBrowseShowsByDay"><img id="browseFriday" src="img/Friday.png" /><h1>Friday</h1></a></div>
+								<div class="ui-block-b"><a href="#pageBrowseShowsByDay"><img id="browseSaturday" src="img/Saturday.png" /><h1>Saturday</h1></a></div>
+								<div class="ui-block-c"><a href="#pageBrowseShowsByDay"><img id="browseSunday" src="img/Sunday.png" /><h1>Sunday</h1></a></div>
 							</div>
 						</li>
 					</ul>
 				</div>
+				
+				<ul data-role="listview" data-inset="true">
+    				<li data-role="list-divider">News Feed <span class="ui-li-count">6</span></li>
+					<li>
+        				<h2>Black Gold</h2>
+        				<p>Next Show - <strong>Monday</strong></p>
+        				<p class="ui-li-aside">Added <strong>Today</strong></p>
+    				</li>
+    				<li>
+        				<h2>Homeland</h2>
+        				<p>Next Show - <strong>Sunday</strong></p>
+        				<p class="ui-li-aside">Added <strong>Today</strong></p>
+    				</li>
+    				<li>
+        				<h2>Dexter</h2>
+        				<p>Next Show - <strong>Sunday</strong></p>
+        				<p class="ui-li-aside">Added <strong>Yesterday</strong></p>
+    				</li>
+    				<li>
+        				<h2>Grey's Anatomy</h2>
+        				<p>Next Show - <strong>Thursday</strong></p>
+        				<p class="ui-li-aside">Added <strong>1 day ago</strong></p>
+    				</li>
+    				<li>
+        				<h2>Curiosity</h2>
+        				<p>Next Show - <strong>Wednesday</strong></p>
+        				<p class="ui-li-aside">Added <strong>3 days ago</strong></p>
+    				</li>
+    				<li>
+        				<h2>Last Resort</h2>
+        				<p>Next Show - <strong>Saturday</strong></p>
+        				<p class="ui-li-aside">Added <strong>3 days ago</strong></p>
+    				</li>
+				</ul>
 			</div>
 			<div data-role="footer" data-position="fixed" data-id="globalNavBar">
 				<div data-role="navbar">
@@ -70,7 +104,7 @@ Project 2
 			</div>
 		</div>
 <!-- pageInfo -->
-		<div data-role="page" id="pageInfo">
+		<div data-role="page" id="pageInfo" data-theme="e">
 			<div data-role="header" data-position="fixed">
 				<h1>Info</h1>
 			</div>
@@ -82,11 +116,11 @@ Project 2
 					<li>E-Mail: ryanwahle@fullsail.edu</li>
 					<li>Class: MIU 1303</li>
 					<li>Project: 2</li>
-					<li>Current App Version: Gold</li>
+					<li>Current App Version: Bronze</li>
 				
 					<li data-role="list-divider">Links</li>
 					<li><a href="https://github.com/b67416/miu1303" rel="external" target="_blank">GitHub Source Code</a></li>
-					<li><a href="bronze/index.html" rel="external" target="_blank">Switch to Bronze App</a></li>
+					<li><a href="../index.html" rel="external" target="_blank">Switch to Gold App</a></li>
 					<li><a href="http://b67416.github.com/vfw1302" rel="external" target="_blank">VFW 1302 App</a></li>
 					<li><a href="http://www.jquery.com" rel="external" target="_blank">JQuery / JQueryMobile</a></li>		
 				</ul>
@@ -102,7 +136,7 @@ Project 2
 			</div>
 		</div>
 <!-- pageBrowseShowsByDay -->
-		<div data-role="page" id="pageBrowseShowsByDay">
+		<div data-role="page" id="pageBrowseShowsByDay" data-theme="e">
 			<div data-role="header" data-position="fixed">
 				<h1 id="headerBrowseShowsByDay">Browse</h1>
 			</div>
@@ -120,7 +154,7 @@ Project 2
 			</div>
 		</div>
 <!-- pageSearch -->
-		<div data-role="page" id="pageSearch">
+		<div data-role="page" id="pageSearch" data-theme="e">
 			<div data-role="header" data-position="fixed">
 				<h1>Search</h1>
 			</div>
