@@ -49,7 +49,7 @@ $("#pageBrowseShowsByDay").on("pageshow", function() {
 	$("#browseLists").trigger("refresh");
 	
 	var tHTML = "";
-	tHTML += "<ul data-role=\"listview\">"
+	tHTML += "<ul data-role=\"listview\">";
 	
 	// Just search through JSON data since I can't access localStorage from addItem.html
 	for (var tvShowObjectKey in jsonFakeData) {
@@ -79,31 +79,29 @@ $("#pageSearch").on("pageshow", function() {
 	$("#searchLists").empty();
 	$("#searchLists").trigger("refresh");
 	
+	var tHTML = "";
+	tHTML += "<ul data-role=\"listview\">";
+	
 	// Search through JSON data since I can't access localStorage from addItem.html
 	for (var tvShowObjectKey in jsonFakeData) {
 		var fakeTVShowObject = jsonFakeData[tvShowObjectKey];
 
 		if (searchText.toUpperCase() == fakeTVShowObject.showName.toUpperCase()) {
-			var tHTML = "";
-			tHTML += tHTML + "<div data-role=\"collapsible\">";
-			tHTML += "		<h4>" + fakeTVShowObject.showName + "</h4>";
-			tHTML += "		<ul data-role=\"listview\">";
-			tHTML += "			<li>Time: " + fakeTVShowObject.time + "</li>";
-			tHTML += "			<li>Day of Week: " + fakeTVShowObject.dayOfWeek + "</li>";
-			tHTML += "			<li>Favorite: " + fakeTVShowObject.favorite + "</li>";
-			tHTML += "			<li>Rating: " + fakeTVShowObject.rating + "</li>";
-			tHTML += "			<li>Starting Date: " + fakeTVShowObject.startingDate + "</li>";
-			tHTML += "			<li>Description: " + fakeTVShowObject.description + "</li>";
-			tHTML += "		</ul>";
-			tHTML += "	</div>";
-			
-			var temp = $("#searchLists");
-			temp.append(tHTML);
-			//$("#searchLists").trigger("create");
-			$("#pageSearch").trigger("create");
+			tHTML += "	<li data-role=\"list-divider\">" + fakeTVShowObject.showName + "</li>";
+			tHTML += "	<li>Time: " + fakeTVShowObject.time + "</li>";
+			tHTML += "	<li>Day of Week: " + fakeTVShowObject.dayOfWeek + "</li>";
+			tHTML += "	<li>Favorite: " + fakeTVShowObject.favorite + "</li>";
+			tHTML += "	<li>Rating: " + fakeTVShowObject.rating + "</li>";
+			tHTML += "	<li>Starting Date: " + fakeTVShowObject.startingDate + "</li>";
+			tHTML += "	<li>Description: " + fakeTVShowObject.description + "</li>";
 		}
 		
 	}
+	
+	var temp = $("#searchLists");
+	temp.append(tHTML);
+	//$("#searchLists").trigger("create");
+	$("#pageSearch").trigger("create");
 });
 
 });
