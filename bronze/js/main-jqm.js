@@ -1,6 +1,6 @@
 /* Ryan Wahle */
 /* MIU 1303   */
-/* Project 2  */
+/* Project 3  */
 
 $(document).ready(function() {
  
