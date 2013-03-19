@@ -29,9 +29,9 @@ Project 3
 			</div>
 			
 			<div data-role="content">
-    			<a href="addItem.html" rel="external"><img src="img/centerstage.png"></a>
+    			<a href="#pageItemForm"><img src="img/centerstage.png"></a>
 				
-				<form action="#" method="get" data-ajax="false">
+				<form action="" id="formSearch">
 					<input type="search" id="searchTVShows" placeholder="Search your TV Shows . . ." />
 					<input type="submit" id="searchTVShowsForm" value="Search">
 				</form>
@@ -41,17 +41,17 @@ Project 3
 					<ul data-role="listview">
 						<li>
 							<div class="ui-grid-c">
-								<div class="ui-block-a"><a href="#pageBrowseShowsByDay"><img id="browseMonday" src="img/Monday.png" /></a></div>
-								<div class="ui-block-b"><a href="#pageBrowseShowsByDay"><img id="browseTuesday" src="img/Tuesday.png" /></a></div>
-								<div class="ui-block-c"><a href="#pageBrowseShowsByDay"><img id="browseWednesday" src="img/Wednesday.png" /></a></div>
-								<div class="ui-block-d"><a href="#pageBrowseShowsByDay"><img id="browseThursday" src="img/Thursday.png" /></a></div>
+								<div class="ui-block-a"><a href="#pageBrowseShowsByDay"><img class="browseDayGraphic" id="Monday" src="img/Monday.png" /></a></div>
+								<div class="ui-block-b"><a href="#pageBrowseShowsByDay"><img class="browseDayGraphic" id="Tuesday" src="img/Tuesday.png" /></a></div>
+								<div class="ui-block-c"><a href="#pageBrowseShowsByDay"><img class="browseDayGraphic" id="Wednesday" src="img/Wednesday.png" /></a></div>
+								<div class="ui-block-d"><a href="#pageBrowseShowsByDay"><img class="browseDayGraphic" id="Thursday" src="img/Thursday.png" /></a></div>
 							</div>
 						</li>
 						<li>
 							<div class="ui-grid-b">
-								<div class="ui-block-a"><a href="#pageBrowseShowsByDay"><img id="browseFriday" src="img/Friday.png" /></a></div>
-								<div class="ui-block-b"><a href="#pageBrowseShowsByDay"><img id="browseSaturday" src="img/Saturday.png" /></a></div>
-								<div class="ui-block-c"><a href="#pageBrowseShowsByDay"><img id="browseSunday" src="img/Sunday.png" /></a></div>
+								<div class="ui-block-a"><a href="#pageBrowseShowsByDay"><img class="browseDayGraphic" id="Friday" src="img/Friday.png" /></a></div>
+								<div class="ui-block-b"><a href="#pageBrowseShowsByDay"><img class="browseDayGraphic" id="Saturday" src="img/Saturday.png" /></a></div>
+								<div class="ui-block-c"><a href="#pageBrowseShowsByDay"><img class="browseDayGraphic" id="Sunday" src="img/Sunday.png" /></a></div>
 							</div>
 						</li>
 					</ul>
@@ -61,6 +61,7 @@ Project 3
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#pageHome" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
+						<li><a href="#pageItemForm" data-icon="plus">Add Show</a></li>
 						<li><a href="#pageInfo" data-icon="info">Info</a></li>
 					</ul>
 				</div>
@@ -93,6 +94,7 @@ Project 3
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#pageHome" data-icon="home">Home</a></li>
+						<li><a href="#pageItemForm" data-icon="plus">Add Show</a></li>
 						<li><a href="#pageInfo" data-icon="info" class="ui-btn-active ui-state-persist">Info</a></li>
 					</ul>
 				</div>
@@ -111,6 +113,7 @@ Project 3
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#pageHome" data-icon="home">Home</a></li>
+						<li><a href="#pageItemForm" data-icon="plus">Add Show</a></li>
 						<li><a href="#pageInfo" data-icon="info">Info</a></li>
 					</ul>
 				</div>
@@ -129,14 +132,68 @@ Project 3
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#pageHome" data-icon="home">Home</a></li>
+						<li><a href="#pageItemForm" data-icon="plus">Add Show</a></li>
 						<li><a href="#pageInfo" data-icon="info">Info</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
+<!-- pageItemForm -->
+		<div data-role="page" id="pageItemForm">
+			<div data-role="header" data-position="fixed">
+				<h1>Item Form</h1>
+			</div>
+			
+			<div data-role="content">
+				<form action="">
+					<label for="showName">Show Name</label>
+					<input id="showName" type="text">
+					
+					<label for="dayOfWeek">Day of Week</label>
+					<select id="dayOfWeek">
+						<option value="Monday">Monday</option>
+						<option value="Tuesday">Tuesday</option>
+						<option value="Wednesday">Wednesday</option>
+						<option value="Thursday">Thursday</option>
+						<option value="Friday">Friday</option>
+						<option value="Saturday">Saturday</option>
+						<option value="Sunday">Sunday</option>
+					</select>
+					
+					<label for="time">Time</label>
+					<input id="time" type="time">
+					
+					<label for="favorite">Favorite</label>
+					<input id="favorite" type="checkbox">
+					
+					<label for="rating">Rating</label>
+					<input id="rating" type="range" max="5" min="1">
+					
+					<label for="startingDate">Starting Date</label>
+					<input id="startingDate" type="date">
+					
+					<label for="description">Description</label>
+					<textarea id="description"></textarea>
+					
+					<input type="submit" value="Add Show">
+					<input type="button" value="Clear">
+				</form>
+			</div>
+		
+			<div data-role="footer" data-position="fixed" data-id="globalNavBar">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" data-icon="home">Home</a></li>
+						<li><a href="" data-icon="plus"  class="ui-btn-active ui-state-persist">Add Show</a></li>
+						<li><a href="#pageInfo" data-icon="info">Info</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+<!-- HTML End -->
 		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
-		<script src="js/main-jqm.js"></script>
+		<script src="js/main.js"></script>
 		<script src="js/json.js"></script>
 	</body>
 </html>
