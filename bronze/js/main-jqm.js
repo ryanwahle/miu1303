@@ -66,11 +66,12 @@ $("#pageBrowseShowsByDay").on("pageshow", function() {
 	}
 	
 	tHTML += "</ul>";		
-	console.log(tHTML);
 	var temp = $("#browseLists");
 	temp.append(tHTML);
-	//$("#browseLists").trigger("create");
 	$("#pageBrowseShowsByDay").trigger("create");
+	
+	console.log(globalBrowseByDay);
+	
 });
 
 // Search for a show
