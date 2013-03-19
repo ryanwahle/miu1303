@@ -84,7 +84,94 @@ Project 3
 						</li>
 					</ul>
 				</div>
+			</div>
+			<div data-role="footer" data-position="fixed" data-id="globalNavBar">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
+						<li><a href="#pageNewsFeed" data-icon="bars">News Feed</a></li>
+						<li><a href="#pageInfo" data-icon="info">Info</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+<!-- pageInfo -->
+		<div data-role="page" id="pageInfo" data-theme="e">
+			<div data-role="header" data-position="fixed">
+				<h1>Info</h1>
+			</div>
+			
+			<div data-role="content">
+				<ul data-role="listview">
+					<li data-role="list-divider">Student Information</li>
+					<li>Author: Ryan Wahle</li>
+					<li>E-Mail: ryanwahle@fullsail.edu</li>
+					<li>Class: MIU 1303</li>
+					<li>Project: 2</li>
+					<li>Current App Version: Bronze</li>
 				
+					<li data-role="list-divider">Links</li>
+					<li><a href="https://github.com/b67416/miu1303" rel="external" target="_blank">GitHub Source Code</a></li>
+					<li><a href="../index.html" rel="external" target="_blank">Switch to Gold App</a></li>
+					<li><a href="http://b67416.github.com/vfw1302" rel="external" target="_blank">VFW 1302 App</a></li>
+					<li><a href="http://www.jquery.com" rel="external" target="_blank">JQuery / JQueryMobile</a></li>		
+				</ul>
+			</div>
+		
+			<div data-role="footer" data-position="fixed" data-id="globalNavBar">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" data-icon="home">Home</a></li>
+						<li><a href="#pageNewsFeed" data-icon="bars">News Feed</a></li>
+						<li><a href="#pageInfo" data-icon="info" class="ui-btn-active ui-state-persist">Info</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+<!-- pageBrowseShowsByDay -->
+		<div data-role="page" id="pageBrowseShowsByDay" data-theme="e">
+			<div data-role="header" data-position="fixed">
+				<h1 id="headerBrowseShowsByDay">Browse</h1>
+			</div>
+			
+			<div data-role="content" id="browseLists">
+			</div>
+		
+			<div data-role="footer" data-position="fixed" data-id="globalNavBar">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" data-icon="home">Home</a></li>
+						<li><a href="#pageNewsFeed" data-icon="bars">News Feed</a></li>
+						<li><a href="#pageInfo" data-icon="info">Info</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+<!-- pageSearch -->
+		<div data-role="page" id="pageSearch" data-theme="e">
+			<div data-role="header" data-position="fixed">
+				<h1>Search</h1>
+			</div>
+			
+			<div data-role="content" id="searchLists">
+			</div>
+		
+			<div data-role="footer" data-position="fixed" data-id="globalNavBar">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" data-icon="home">Home</a></li>
+						<li><a href="#pageNewsFeed" data-icon="bars">News Feed</a></li>
+						<li><a href="#pageInfo" data-icon="info">Info</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+<!-- pageNewsFeed -->
+		<div data-role="page" id="pageNewsFeed" data-theme="e">
+			<div data-role="header" data-position="fixed">
+				<h1>News Feed</h1>
+			</div>
+			<div data-role="content">
 				<ul data-role="listview" data-inset="true">
     				<li data-role="list-divider">News Feed <span class="ui-li-count">6</span></li>
 					<li>
@@ -122,75 +209,8 @@ Project 3
 			<div data-role="footer" data-position="fixed" data-id="globalNavBar">
 				<div data-role="navbar">
 					<ul>
-						<li><a href="#pageHome" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
-						<li><a href="#pageInfo" data-icon="info">Info</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-<!-- pageInfo -->
-		<div data-role="page" id="pageInfo" data-theme="e">
-			<div data-role="header" data-position="fixed">
-				<h1>Info</h1>
-			</div>
-			
-			<div data-role="content">
-				<ul data-role="listview">
-					<li data-role="list-divider">Student Information</li>
-					<li>Author: Ryan Wahle</li>
-					<li>E-Mail: ryanwahle@fullsail.edu</li>
-					<li>Class: MIU 1303</li>
-					<li>Project: 2</li>
-					<li>Current App Version: Bronze</li>
-				
-					<li data-role="list-divider">Links</li>
-					<li><a href="https://github.com/b67416/miu1303" rel="external" target="_blank">GitHub Source Code</a></li>
-					<li><a href="../index.html" rel="external" target="_blank">Switch to Gold App</a></li>
-					<li><a href="http://b67416.github.com/vfw1302" rel="external" target="_blank">VFW 1302 App</a></li>
-					<li><a href="http://www.jquery.com" rel="external" target="_blank">JQuery / JQueryMobile</a></li>		
-				</ul>
-			</div>
-		
-			<div data-role="footer" data-position="fixed" data-id="globalNavBar">
-				<div data-role="navbar">
-					<ul>
 						<li><a href="#pageHome" data-icon="home">Home</a></li>
-						<li><a href="#pageInfo" data-icon="info" class="ui-btn-active ui-state-persist">Info</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-<!-- pageBrowseShowsByDay -->
-		<div data-role="page" id="pageBrowseShowsByDay" data-theme="e">
-			<div data-role="header" data-position="fixed">
-				<h1 id="headerBrowseShowsByDay">Browse</h1>
-			</div>
-			
-			<div data-role="content" id="browseLists">
-			</div>
-		
-			<div data-role="footer" data-position="fixed" data-id="globalNavBar">
-				<div data-role="navbar">
-					<ul>
-						<li><a href="#pageHome" data-icon="home">Home</a></li>
-						<li><a href="#pageInfo" data-icon="info">Info</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-<!-- pageSearch -->
-		<div data-role="page" id="pageSearch" data-theme="e">
-			<div data-role="header" data-position="fixed">
-				<h1>Search</h1>
-			</div>
-			
-			<div data-role="content" id="searchLists">
-			</div>
-		
-			<div data-role="footer" data-position="fixed" data-id="globalNavBar">
-				<div data-role="navbar">
-					<ul>
-						<li><a href="#pageHome" data-icon="home">Home</a></li>
+						<li><a href="#pageNewsFeed" data-icon="bars" class="ui-btn-active ui-state-persist">News Feed</a></li>
 						<li><a href="#pageInfo" data-icon="info">Info</a></li>
 					</ul>
 				</div>
