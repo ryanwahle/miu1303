@@ -19,6 +19,7 @@ Project 3
 		<meta name="robots" content="noindex, nofollow" />
 		<meta http-equiv="cleartype" content="on">
 		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+		<link rel="stylesheet" href="css/styles.css" />
 		<script src="js/libs/modernizr.custom.min.js"></script>
 	</head>
 	<body>
@@ -29,7 +30,7 @@ Project 3
 			</div>
 			
 			<div data-role="content">
-    			<a href="#pageItemForm"><img src="img/centerstage.png"></a>
+    			<img id="addItemClick" src="img/centerstage.png">
 				
 				<form action="" id="formSearch">
 					<input type="search" id="searchTVShows" placeholder="Search your TV Shows . . ." />
@@ -61,7 +62,7 @@ Project 3
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#pageHome" data-icon="home" class="ui-btn-active ui-state-persist">Home</a></li>
-						<li><a href="#pageItemForm" data-icon="plus">Add Show</a></li>
+						<li><a href="#pageStorage" data-icon="gear">Storage</a></li>
 						<li><a href="#pageInfo" data-icon="info">Info</a></li>
 					</ul>
 				</div>
@@ -94,7 +95,7 @@ Project 3
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#pageHome" data-icon="home">Home</a></li>
-						<li><a href="#pageItemForm" data-icon="plus">Add Show</a></li>
+						<li><a href="#pageStorage" data-icon="gear">Storage</a></li>
 						<li><a href="#pageInfo" data-icon="info" class="ui-btn-active ui-state-persist">Info</a></li>
 					</ul>
 				</div>
@@ -113,7 +114,7 @@ Project 3
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#pageHome" data-icon="home">Home</a></li>
-						<li><a href="#pageItemForm" data-icon="plus">Add Show</a></li>
+						<li><a href="#pageStorage" data-icon="gear">Storage</a></li>
 						<li><a href="#pageInfo" data-icon="info">Info</a></li>
 					</ul>
 				</div>
@@ -141,16 +142,16 @@ Project 3
 <!-- pageItemForm -->
 		<div data-role="page" id="pageItemForm">
 			<div data-role="header" data-position="fixed">
-				<h1>Item Form</h1>
+				<h1 id="headerItemForm">Add Show</h1>
 			</div>
 			
 			<div data-role="content">
-				<form action="">
+				<form action="" id="formItem">
 					<label for="showName">Show Name</label>
-					<input id="showName" type="text">
+					<input id="showName" name="showName" type="text" class="required">
 					
 					<label for="dayOfWeek">Day of Week</label>
-					<select id="dayOfWeek">
+					<select id="dayOfWeek" name="dayOfWeek" class="required">
 						<option value="Monday">Monday</option>
 						<option value="Tuesday">Tuesday</option>
 						<option value="Wednesday">Wednesday</option>
@@ -160,23 +161,27 @@ Project 3
 						<option value="Sunday">Sunday</option>
 					</select>
 					
+					<input id="key" type="hidden">
+					
 					<label for="time">Time</label>
-					<input id="time" type="time">
+					<input id="time" name="time" type="time" class="required time">
 					
 					<label for="favorite">Favorite</label>
-					<input id="favorite" type="checkbox">
+					<input id="favorite" name="favorite" type="checkbox">
 					
 					<label for="rating">Rating</label>
-					<input id="rating" type="range" max="5" min="1">
+					<input id="rating" name="rating" type="range" max="5" min="1" class="required range">
 					
 					<label for="startingDate">Starting Date</label>
-					<input id="startingDate" type="date">
+					<input id="startingDate" name="startingDate" type="date" class="required date">
 					
 					<label for="description">Description</label>
-					<textarea id="description"></textarea>
+					<textarea id="description" name="description" class="required"></textarea>
 					
-					<input type="submit" value="Add Show">
-					<input type="button" value="Clear">
+					<input type="submit" id="submitItemForm" value="Add Show">
+					<input type="reset" value="Clear">
+					
+					<a href="#dialogValidateError" id="dialogValidateErrorLink" data-rel="dialog" data-transition="pop">Validate Error Dialog Link</a> 
 				</form>
 			</div>
 		
@@ -184,15 +189,50 @@ Project 3
 				<div data-role="navbar">
 					<ul>
 						<li><a href="#pageHome" data-icon="home">Home</a></li>
-						<li><a href="" data-icon="plus"  class="ui-btn-active ui-state-persist">Add Show</a></li>
+						<li><a href="#pageStorage" data-icon="gear">Storage</a></li>
 						<li><a href="#pageInfo" data-icon="info">Info</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>
+<!-- pageStorage -->
+		<div data-role="page" id="pageStorage">
+			<div data-role="header" data-position="fixed">
+				<h1>Storage Utilities</h1>
+			</div>
+			
+			<div data-role="content">
+				<a href="#" data-role="button" id="buttonLoadJSON">Load JSON Data</a>
+				<a href="#" data-role="button" id="buttonClearLocalStorage">Clear localStorage Data</a>
+			</div>
+		
+			<div data-role="footer" data-position="fixed" data-id="globalNavBar">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageHome" data-icon="home">Home</a></li>
+						<li><a href="" data-icon="gear" class="ui-btn-active ui-state-persist">Storage</a></li>
+						<li><a href="#pageInfo" data-icon="info">Info</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+<!-- dialogValidateError -->
+		<div data-role="dialog" id="dialogValidateError">
+			<div data-role="header" data-position="fixed">
+				<h1>Missing Fields</h1>
+			</div>
+			
+			<div data-role="content">
+				<ul>
+					<li>Some required fields were missing</li>
+				</ul>
+			</div>
+		
+		</div>
 <!-- HTML End -->
 		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 		<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+		<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.0/jquery.validate.min.js"></script>
 		<script src="js/main.js"></script>
 		<script src="js/json.js"></script>
 	</body>

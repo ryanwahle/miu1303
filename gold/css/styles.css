@@ -1,3 +1,13 @@
 /* Ryan Wahle */
 /* MIU 1303   */
 /* Project 3  */
+
+label.error {
+	display: block;
+	margin: 10px 0;
+	color: #CC0000;
+}
+
+#dialogValidateErrorLink {
+	display:none;
+}

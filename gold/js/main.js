@@ -4,146 +4,215 @@
  
 var globalBrowseByDay;
 
-/*
-$('#pageHome').on('pageinit', function(){
-	var myForm = $('#formSearch');
+
+$('#pageItemForm').on('pageinit', function(){
+	var myForm = $('#formItem');
+	var dialogValidateErrorLink = $('#dialogValidateErrorLink');
+	
 	myForm.validate({
 		invalidHandler: function(form, validator) {
-			// validation code goes here?
+			dialogValidateErrorLink.click();
+			
+			var tHTML = '';
+			for (var mykey in validator.submitted) {
+				var labelText = $('label.ui-input-text[for^="' + mykey + '"]');
+				//console.log('Key: ' + mykey + ' labelText: ' + labelText.text())
+				tHTML += '<li>' + labelText.text() + '</li>';
+			}
+			
+			$('#dialogValidateError ul').html(tHTML);
 		},
 		submitHandler: function() {
 			//var data = myForm.serializeArray();
 			//storeData(data);
-			console.log("formSearch submitted");
+			storeData();
 		}
 	});
 });
-*/
 
-$('#pageHome').on('pageinit', function () {
-
-
-// The user tried to search
-$("#formSearch").submit(function() {
-	$.mobile.changePage($("#pageSearch"));
-	return false;
-});
-
+// <-- Browse Show by Day -->
 $('.browseDayGraphic').click(function() {
 	globalBrowseByDay = this.id;
 });
 
 $("#pageBrowseShowsByDay").on("pageshow", function() {
-	//console.log(this.id);
 	$("#headerBrowseShowsByDay").text(globalBrowseByDay);
 	$("#browseLists").empty();
 	$("#browseLists").trigger("refresh");
 	
-	// Just search through JSON data since I can't access localStorage from addItem.html
-	for (var tvShowObjectKey in jsonFakeData) {
-		var fakeTVShowObject = jsonFakeData[tvShowObjectKey];
-
-		if (globalBrowseByDay == fakeTVShowObject.dayOfWeek) {
-			var tHTML = "";
-			tHTML += tHTML + "<div data-role=\"collapsible\">";
-			tHTML += "		<h4>" + fakeTVShowObject.showName + "</h4>";
-			tHTML += "		<ul data-role=\"listview\">";
-			tHTML += "			<li>Time: " + fakeTVShowObject.time + "</li>";
-			tHTML += "			<li>Day of Week: " + fakeTVShowObject.dayOfWeek + "</li>";
-			tHTML += "			<li>Favorite: " + fakeTVShowObject.favorite + "</li>";
-			tHTML += "			<li>Rating: " + fakeTVShowObject.rating + "</li>";
-			tHTML += "			<li>Starting Date: " + fakeTVShowObject.startingDate + "</li>";
-			tHTML += "			<li>Description: " + fakeTVShowObject.description + "</li>";
-			tHTML += "		</ul>";
-			tHTML += "	</div>";
-			
-			var temp = $("#browseLists");
-			temp.append(tHTML);
-			//$("#browseLists").trigger("create");
-			$("#pageBrowseShowsByDay").trigger("create");
-		}
+	for (var i = 0; i < localStorage.length; i++) {
+		var key = localStorage.key(i);
+		var value = localStorage.getItem(key);
+		var myTVShow = JSON.parse(value);
 		
+		if (globalBrowseByDay == myTVShow.dayOfWeek) {
+			var tHTML = '';
+			tHTML += tHTML + '<div data-role="collapsible">';
+			tHTML += '		<h4>' + myTVShow.showName + '</h4>';
+			tHTML += '		<ul data-role="listview" id="itemShow">';
+			tHTML += '			<li><a href="#" id="editItem" key="' + key + '">Edit</a></li>';
+			tHTML += '			<li><a href="#" id="deleteItem" key="' + key + '">Delete</a></li>';
+			tHTML += '			<li>Time: ' + myTVShow.time + '</li>';
+			tHTML += '			<li>Day of Week: ' + myTVShow.dayOfWeek + '</li>';
+			tHTML += '			<li>Favorite: ' + myTVShow.favorite + '</li>';
+			tHTML += '			<li>Rating: ' + myTVShow.rating + '</li>';
+			tHTML += '			<li>Starting Date: ' + myTVShow.startingDate + '</li>';
+			tHTML += '			<li>Description: ' + myTVShow.description + '</li>';
+			tHTML += '		</ul>';
+			tHTML += '	</div>';
+			
+			$('#browseLists').append(tHTML);
+			$('#pageBrowseShowsByDay').trigger('create');
+		}
 	}
 });
 
+// <-- Edit Item -->
+$('#editItem').live('click', function() {
+	//console.log($(this).attr('key'));
+	$.mobile.changePage('#pageItemForm');
+	
+	var key = $(this).attr('key');
+	var value = localStorage.getItem(key);
+	var myTVShow = JSON.parse(value);
+		
+	$('#pageItemForm #showName').val(myTVShow.showName);
+	$('#pageItemForm #time').val(myTVShow.time);
+	$('#pageItemForm #dayOfWeek').val(myTVShow.dayOfWeek).selectmenu('refresh');
+	$('#pageItemForm #rating').val(myTVShow.rating).slider('refresh');
+	$('#pageItemForm #startingDate').val(myTVShow.startingDate);
+	$('#pageItemForm #description').val(myTVShow.description);
+	$('#pageItemForm #key').val(key);
+	
+	if (myTVShow.favorite == "false") {
+		$('#pageItemForm #favorite').attr('checked', false).checkboxradio('refresh');
+	} else {
+		$('#pageItemForm #favorite').attr('checked', true).checkboxradio('refresh');
+	}
+	
+	$('#pageItemForm #headerItemForm').text('Edit Show');
+	$('#pageItemForm #submitItemForm').val('Save').button('refresh');
 });
 
-// Search for a show
+// <-- Delete Item -->
+$('#deleteItem').live('click', function() {
+	var deleteConfirmation = confirm("Are you sure you want to delete this show??");
+		
+	if (deleteConfirmation) {
+		localStorage.removeItem($(this).attr('key'));
+		$.mobile.changePage('#pageHome');
+	}
+});
+
+// <-- Defaults for Add Show Form -->
+$('#addItemClick').click(function() {
+	$.mobile.changePage('#pageItemForm');
+	
+	$('#pageItemForm #headerItemForm').text('Add Show');
+	$('#pageItemForm #submitItemForm').val('Add Show').button('refresh');
+	
+	$('#pageItemForm #showName').val('');
+	$('#pageItemForm #time').val('');
+	$('#pageItemForm #dayOfWeek').val('').selectmenu('refresh');
+	$('#pageItemForm #rating').val('').slider('refresh');
+	$('#pageItemForm #startingDate').val('');
+	$('#pageItemForm #description').val('');
+	$('#pageItemForm #key').val('');
+	$('#pageItemForm #favorite').attr('checked', false).checkboxradio('refresh');
+});
+
+// <-- Search -->
+$("#formSearch").submit(function() {
+	$.mobile.changePage($("#pageSearch"));
+	return false;
+});
+
 $("#pageSearch").on("pageshow", function() {
 	var searchText = $("#searchTVShows").val();
 	$("#searchLists").empty();
 	$("#searchLists").trigger("refresh");
 	
-	// Search through JSON data since I can't access localStorage from addItem.html
-	for (var tvShowObjectKey in jsonFakeData) {
-		var fakeTVShowObject = jsonFakeData[tvShowObjectKey];
+	for (var i = 0; i < localStorage.length; i++) {
+		var key = localStorage.key(i);
+		var value = localStorage.getItem(key);
+		var myTVShow = JSON.parse(value);
 
-		if (searchText.toUpperCase() == fakeTVShowObject.showName.toUpperCase()) {
+		if (searchText.toUpperCase() == myTVShow.showName.toUpperCase()) {
 			var tHTML = "";
 			tHTML += tHTML + "<div data-role=\"collapsible\">";
-			tHTML += "		<h4>" + fakeTVShowObject.showName + "</h4>";
+			tHTML += "		<h4>" + myTVShow.showName + "</h4>";
 			tHTML += "		<ul data-role=\"listview\">";
-			tHTML += "			<li>Time: " + fakeTVShowObject.time + "</li>";
-			tHTML += "			<li>Day of Week: " + fakeTVShowObject.dayOfWeek + "</li>";
-			tHTML += "			<li>Favorite: " + fakeTVShowObject.favorite + "</li>";
-			tHTML += "			<li>Rating: " + fakeTVShowObject.rating + "</li>";
-			tHTML += "			<li>Starting Date: " + fakeTVShowObject.startingDate + "</li>";
-			tHTML += "			<li>Description: " + fakeTVShowObject.description + "</li>";
+			tHTML += "			<li>Time: " + myTVShow.time + "</li>";
+			tHTML += "			<li>Day of Week: " + myTVShow.dayOfWeek + "</li>";
+			tHTML += "			<li>Favorite: " + myTVShow.favorite + "</li>";
+			tHTML += "			<li>Rating: " + myTVShow.rating + "</li>";
+			tHTML += "			<li>Starting Date: " + myTVShow.startingDate + "</li>";
+			tHTML += "			<li>Description: " + myTVShow.description + "</li>";
 			tHTML += "		</ul>";
 			tHTML += "	</div>";
 			
-			var temp = $("#searchLists");
-			temp.append(tHTML);
-			//$("#searchLists").trigger("create");
-			$("#pageSearch").trigger("create");
+			$('#searchLists').append(tHTML);
+			$('#pageSearch').trigger('create');
 		}
 		
 	}
 
 });
 
-/*
-$('#home').on('pageinit', function(){
-	//code needed for home page goes here
-});	
+// <-- Save Item to localStorage -->
+function storeData ()
+{
+	console.log("function: storeData");
+	var formKey = $('#formItem #key').val();
 		
-$('#addItem').on('pageinit', function(){
+	var myTVShow = {
+		'showName': $('#formItem #showName').val(),
+		'dayOfWeek': $('#formItem #dayOfWeek').val(),
+		'time': $('#formItem #time').val(),
+		'favorite': $('#formItem #favorite').val(),
+		'rating': $('#formItem #rating').val(),
+		'startingDate': $('#formItem #startingDate').val(),
+		'description': $('#formItem #description').val()
+	};
+	
+	if (formKey == '') {
+		// Adding an item
+		var key = Math.floor(Math.random()*10000000001);
+	} else {
+		// Saving an edit
+		var key = formKey;
+	}
+	
+	localStorage.setItem(key, JSON.stringify(myTVShow));
+	
+	$.mobile.changePage('#pageHome');
+}
 
-		var myForm = $('#formId');
-		    myForm.validate({
-			invalidHandler: function(form, validator) {
-			},
-			submitHandler: function() {
-		var data = myForm.serializeArray();
-			storeData(data);
+// <-- Clear localStorage -->
+$('#pageStorage #buttonClearLocalStorage').click(function() {
+	if (localStorage.length == 0) {
+		alert("There is no data to clear!");
+	} else {
+		var clearStoredDataConfirmation = confirm("Are you sure you want to clear all the data?");
+		
+		if (clearStoredDataConfirmation) {
+			localStorage.clear();
 		}
-	});
-	
-	//any other code needed for addItem page goes here
-	
+	}
 });
 
-
-//The functions below can go inside or outside the pageinit function for the page in which it is needed.
-
-var autofillData = function (){
-	 
-};
-
-var getData = function(){
-
-};
-
-var storeData = function(data){
+// <-- Add JSON Data -->
+$('#pageStorage #buttonLoadJSON').click(function() {
+	if (localStorage.length > 0) {
+		alert('There is already data in localStorage.\n\nClear the localStorage first if you wish to add JSON data!');
+	} else {
+		for (var tvShowObjectKey in jsonFakeData) {
+			var fakeTVShowObject = jsonFakeData[tvShowObjectKey];
+			var key = Math.floor(Math.random() * 10000000001);
+			localStorage.setItem(key, JSON.stringify(fakeTVShowObject));
+		}
+		
+		alert('The json.js file has been loaded into localStorage');
+	}
 	
-}; 
-
-var	deleteItem = function (){
-			
-};
-					
-var clearLocal = function(){
-
-};
-*/
-
+});
