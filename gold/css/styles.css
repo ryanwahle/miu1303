@@ -11,3 +11,7 @@ label.error {
 #dialogValidateErrorLink {
 	display:none;
 }
+
+.requiredField {
+	color: #CC0000;
+}

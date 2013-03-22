@@ -17,7 +17,7 @@ $('#pageItemForm').on('pageinit', function(){
 			for (var mykey in validator.submitted) {
 				var labelText = $('label.ui-input-text[for^="' + mykey + '"]');
 				//console.log('Key: ' + mykey + ' labelText: ' + labelText.text())
-				tHTML += '<li>' + labelText.text() + '</li>';
+				tHTML += '<li>' + labelText.text().slice(0, -1) + '</li>';
 			}
 			
 			$('#dialogValidateError ul').html(tHTML);
@@ -35,10 +35,10 @@ $('.browseDayGraphic').click(function() {
 	globalBrowseByDay = this.id;
 });
 
-$("#pageBrowseShowsByDay").on("pageshow", function() {
-	$("#headerBrowseShowsByDay").text(globalBrowseByDay);
-	$("#browseLists").empty();
-	$("#browseLists").trigger("refresh");
+$('#pageBrowseShowsByDay').on('pageshow', function() {
+	$('#headerBrowseShowsByDay').text(globalBrowseByDay);
+	$('#browseLists').empty();
+	$('#browseLists').trigger('refresh');
 	
 	for (var i = 0; i < localStorage.length; i++) {
 		var key = localStorage.key(i);
@@ -114,42 +114,44 @@ $('#addItemClick').click(function() {
 	$('#pageItemForm #showName').val('');
 	$('#pageItemForm #time').val('');
 	$('#pageItemForm #dayOfWeek').val('').selectmenu('refresh');
-	$('#pageItemForm #rating').val('').slider('refresh');
-	$('#pageItemForm #startingDate').val('');
+	$('#pageItemForm #rating').val('3').slider('refresh');
 	$('#pageItemForm #description').val('');
 	$('#pageItemForm #key').val('');
-	$('#pageItemForm #favorite').attr('checked', false).checkboxradio('refresh');
+	$('#pageItemForm #favorite').attr('checked', true).checkboxradio('refresh');
+  	$('#pageItemForm #startingDate').val('');
 });
 
 // <-- Search -->
-$("#formSearch").submit(function() {
-	$.mobile.changePage($("#pageSearch"));
+$('#formSearch').submit(function() {
+	$.mobile.changePage($('#pageSearch'));
 	return false;
 });
 
-$("#pageSearch").on("pageshow", function() {
-	var searchText = $("#searchTVShows").val();
-	$("#searchLists").empty();
-	$("#searchLists").trigger("refresh");
+$('#pageSearch').on('pageshow', function() {
+	var searchText = $('#searchTVShows').val();
+	$('#searchLists').empty();
+	$('#searchLists').trigger('refresh');
 	
 	for (var i = 0; i < localStorage.length; i++) {
 		var key = localStorage.key(i);
 		var value = localStorage.getItem(key);
 		var myTVShow = JSON.parse(value);
-
-		if (searchText.toUpperCase() == myTVShow.showName.toUpperCase()) {
-			var tHTML = "";
-			tHTML += tHTML + "<div data-role=\"collapsible\">";
-			tHTML += "		<h4>" + myTVShow.showName + "</h4>";
-			tHTML += "		<ul data-role=\"listview\">";
-			tHTML += "			<li>Time: " + myTVShow.time + "</li>";
-			tHTML += "			<li>Day of Week: " + myTVShow.dayOfWeek + "</li>";
-			tHTML += "			<li>Favorite: " + myTVShow.favorite + "</li>";
-			tHTML += "			<li>Rating: " + myTVShow.rating + "</li>";
-			tHTML += "			<li>Starting Date: " + myTVShow.startingDate + "</li>";
-			tHTML += "			<li>Description: " + myTVShow.description + "</li>";
-			tHTML += "		</ul>";
-			tHTML += "	</div>";
+		
+		if (globalBrowseByDay == myTVShow.dayOfWeek) {
+			var tHTML = '';
+			tHTML += tHTML + '<div data-role="collapsible">';
+			tHTML += '		<h4>' + myTVShow.showName + '</h4>';
+			tHTML += '		<ul data-role="listview" id="itemShow">';
+			tHTML += '			<li><a href="#" id="editItem" key="' + key + '">Edit</a></li>';
+			tHTML += '			<li><a href="#" id="deleteItem" key="' + key + '">Delete</a></li>';
+			tHTML += '			<li>Time: ' + myTVShow.time + '</li>';
+			tHTML += '			<li>Day of Week: ' + myTVShow.dayOfWeek + '</li>';
+			tHTML += '			<li>Favorite: ' + myTVShow.favorite + '</li>';
+			tHTML += '			<li>Rating: ' + myTVShow.rating + '</li>';
+			tHTML += '			<li>Starting Date: ' + myTVShow.startingDate + '</li>';
+			tHTML += '			<li>Description: ' + myTVShow.description + '</li>';
+			tHTML += '		</ul>';
+			tHTML += '	</div>';
 			
 			$('#searchLists').append(tHTML);
 			$('#pageSearch').trigger('create');
@@ -162,7 +164,6 @@ $("#pageSearch").on("pageshow", function() {
 // <-- Save Item to localStorage -->
 function storeData ()
 {
-	console.log("function: storeData");
 	var formKey = $('#formItem #key').val();
 		
 	var myTVShow = {
@@ -191,9 +192,9 @@ function storeData ()
 // <-- Clear localStorage -->
 $('#pageStorage #buttonClearLocalStorage').click(function() {
 	if (localStorage.length == 0) {
-		alert("There is no data to clear!");
+		alert('There is no data to clear!');
 	} else {
-		var clearStoredDataConfirmation = confirm("Are you sure you want to clear all the data?");
+		var clearStoredDataConfirmation = confirm('Are you sure you want to clear all the data?');
 		
 		if (clearStoredDataConfirmation) {
 			localStorage.clear();
