@@ -4,6 +4,7 @@
  
 var globalBrowseByDay;
 
+$.mobile.changeGlobalTheme("a");
 
 $('#pageItemForm').on('pageinit', function(){
 	var myForm = $('#formItem');
