@@ -19,7 +19,7 @@ $('#pageItemForm').on('pageinit', function(){
 				tHTML += '<li>' + labelText.text().slice(0, -1) + '</li>';
 			}
 			
-			$('#dialogValidateError ul').html(tHTML);
+			$('#dialogValidateError ul').html(tHTML).trigger('refresh');
 		},
 		submitHandler: function() {
 			//var data = myForm.serializeArray();
@@ -27,6 +27,11 @@ $('#pageItemForm').on('pageinit', function(){
 			storeData();
 		}
 	});
+});
+
+// <-- Home Button -->
+$('.linkHome').click(function() {
+	$.mobile.changePage('#pageHome');
 });
 
 // <-- Browse Show by Day -->

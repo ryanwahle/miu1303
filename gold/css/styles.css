@@ -5,13 +5,25 @@
 label.error {
 	display: block;
 	margin: 10px 0;
-	color: #CC0000;
+	color: yellow;
 }
 
 #dialogValidateErrorLink {
-	display:none;
+	display: none;
 }
 
 .requiredField {
-	color: #CC0000;
+	color: yellow;
+}
+
+.linkHome {
+	float: left;
+    display: inline;
+    
+    height: 35px;
+    width: 30px;
+    
+    margin-left: 5px;
+    margin-top: 2px;
+    
 }
